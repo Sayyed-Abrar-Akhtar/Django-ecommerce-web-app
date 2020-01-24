@@ -28,6 +28,5 @@ urlpatterns = [
     path('deleteproduct/<int:id>', productviews.deleteproduct),
     path('search', productviews.search),
     path('login', productviews.login),
-    path('entry', productviews.entry),
-    path('login', productviews.login),
+    path('logout', productviews.logout),
 ]

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block title%}Dashboard{% endblock %}
+{% block head%}Dashboard{% endblock %}
+{% block content %}
+
+<div class="product-header">
+  <div class="product-add-btn">
+    <a href="#">Add Product</a>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>Only</h5>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>Solid</h5>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>Hermano</h5>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>Bench</h5>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>Armani</h5>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>Gnious</h5>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 searchbar">
+    <input type="text" class="form-control" id="search" aria-describedby="productSearch" placeholder="Search......." name="search">
+  </div>
+</div>
+
+
+
+<table class="table table-light table-product">
+  <thead class="thead-dark thead-custom">
+    <tr>
+      <th scope="col">Product Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Inventory</th>
+      <th scope="col">Type</th>
+      <th scope="col">Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for type in types %}
+    <tr>
+      {% load static %}
+      <th scope="row"><img class="rounded product-thumbnail" src="{% static 'product/files/test-user.jpg' %}" alt="">{{product.productTitle}}</th>
+      <td>{{type.typeId}}</td>
+      <td>{{type.typeName}}</td>
+      <td>{{product.getType}}</td>
+      <td>{{product.getVendor}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

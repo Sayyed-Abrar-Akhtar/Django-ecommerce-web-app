@@ -1,0 +1,377 @@
+/*
+primary color: #34495e;
+secondary color: #d35400;
+
+
+*/
+
+/*-----------------------------------*/
+/* BASIC SETUP */
+/*-----------------------------------*/
+
+{% load static %}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #f2f2f2;
+    color: #555;
+    font-family: 'Lato', 'Arial', 'sans-serif';
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility; /* this will make our fonts rendering in a perfect way*/
+}
+
+
+/*-----------------------------------*/
+/* REUSABLE COMPONENTS */
+/*-----------------------------------*/
+
+section {
+    padding: 10px 0;
+}
+
+.box {
+    padding: 1%;
+}
+
+
+/*-----------------------------------*/
+/* HEADINGS */
+/*-----------------------------------*/
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  height: 30px;
+}
+
+/*-----------------------------------*/
+/* Header */
+/*-----------------------------------*/
+
+header .nav-row {
+  height: 60px;
+  background-color: #34495e;
+  margin:0;
+  box-sizing: border-box;
+}
+.nav-row .ontrend-logo {
+  height: 100%;
+
+}
+.nav-row .ontrend-logo .logo-img {
+  height: 90%;
+  margin:2.5% 0 0 10px;
+
+}
+
+.nav-row .page-title {
+}
+
+.nav-row .page-title h1 {
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  font-size: 130%;
+  margin-top: 13px;
+}
+
+.nav-row .current-user .current-user-location {
+  height: 60px;
+  margin: 1px 5px 0 0;
+  float: right;
+}
+
+.nav-row .current-user .current-user-location .img-staff {
+  height:80%;
+  margin: 5px 10px;
+  border-radius: 200%;
+  float: left;
+}
+
+.nav-row .current-user .current-user-location .user {
+  float: left;
+  height: 60px;
+}
+
+.nav-row .current-user .current-user-location .user h5 {
+  letter-spacing: 1px;
+  font-weight:200;
+  font-size: 100%;
+  color: #fff;
+  padding-top: 15px;
+  float: left;
+}
+
+.nav-row .current-user .current-user-location .user a img {
+  height: 23%;
+  float: left;
+  margin: 25px 0 0 3px;
+}
+
+.nav-row .current-user .dropdown-content {
+  background-color: #34495e;
+  width: 153px;
+  position: absolute;
+  top: 60px;
+  left: 63%;
+  display: none;
+  z-index: 10;
+}
+
+.nav-row .current-user .dropdown-content ul{
+  margin-right: 10px;
+  padding: 10px 0 0 0;
+
+}
+
+.nav-row .current-user .dropdown-content ul li {
+  list-style-type: none;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 100;
+  padding: 3px 0;
+}
+.nav-row .current-user .dropdown-content ul li a {
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 2px solid #34495e;
+}
+
+.nav-row .current-user .dropdown-content ul li a:hover {
+  border-bottom: 2px solid #d35400;
+}
+
+/*-----------------------------------*/
+/* Main body content */
+/*-----------------------------------*/
+
+
+.main {
+  background-color: #fff;
+  height: 89vh
+  color: #243342;
+}
+
+.main .side-menu {
+  float: left;
+  height: 89vh;
+  border-right: 3px solid  #f0f0f0;
+  background-color: #f2f2f2;
+}
+
+.main .side-menu ul {
+  margin: 10px -15px;
+  list-style-type: none;
+  color: #243342;
+}
+
+.main .side-menu ul li {
+  margin: 0;
+  padding: 10px 20px 10px 20px;
+}
+
+.main .side-menu ul li a {
+  text-decoration: none;
+  color: #6c6363;
+  font-size: 80%;
+  letter-spacing: 1px;
+  padding-top: 1px;
+}
+
+.main .side-menu ul li a:hover, .main .side-menu ul li a .sidebar-menu-icon:hover {
+  color: #d35400;
+  fill: #d35400;
+}
+
+ .main .side-menu ul li a .sidebar-menu-icon{
+   fill: #6c6363;
+   height: 20px;
+ }
+ 
+ .product-list {
+   float: left;
+   background-color: #f2f2f2;
+ }
+
+/*-----------------------------------*/
+/* Main body content */
+/*-----------------------------------*/
+
+.clearfix {
+  clear: both;
+}
+
+.products-listing {
+  width: 100%;
+}
+
+.product-header {
+}
+
+.product-add-btn {
+  width: 100%;
+  margin-top: 6px;
+  border-bottom: 3px solid #f0f0f0;
+  padding-bottom: 56px;
+
+}
+
+.product-add-btn a{
+  background-image: linear-gradient(#ff0000e6, #d35400);
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border: 1px solid #d35400;
+  float: right;
+  z-index: -1;
+  border-radius: 8px;
+  font-size: 78%;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.product-add-btn a:hover {
+  text-decoration: none;
+  background-image: linear-gradient(#d35400, #ff0000e6);
+  color: #fff;
+  border: 1px solid #d35400;
+}
+
+/*-----------------------------------*/
+/* vendors  */
+/*-----------------------------------*/
+
+.row .vendor-title h5 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 10px 1px 10px;
+  font-size: 85%;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.row .vendor-title h5:hover {
+  border-bottom: 2px solid #d35400;
+}
+
+/*-----------------------------------*/
+/* product-search  */
+/*-----------------------------------*/
+.searchbar input[type=text] {
+  border: 1px solid #d35400;
+  margin-top: 4px;
+  color: #000;
+  height: 40px;
+}
+
+/*-----------------------------------*/
+/* product-listings  */
+/*-----------------------------------*/
+
+.table-product {
+  margin-top: 6px;
+}
+
+.main .product-list table .thead-custom tr {
+  background-color: #d35400;
+  border-color: #d35400;
+}
+
+.main .product-list table .thead-custom tr th {
+  font-family: 'Lato', 'Arial', 'sans-serif';
+  font-size: 100%;
+  letter-spacing: 1px;
+  font-weight: 400;
+  word-spacing: 2px;
+  background-color: #000;
+  background-image: linear-gradient(#ff0000e6, #d35400);
+  padding: 1%;
+  border-color:#ff6601ab;
+  text-align: center;
+}
+
+.main .product-list table .thead-custom tr .product-title {
+  text-align: left;
+  padding-left: 1%;
+}
+
+.main .product-list table tbody tr {
+  color: #6c6c6c;
+  border-bottom: 1px solid #6c636338;
+}
+
+.main .product-list table tbody tr th {
+  padding: 0;
+  font-size: 80%;
+}
+
+.main .product-list table tbody tr th a{
+  text-decoration: none;
+  color: #6c6c6c;
+  text-align: left;
+}
+
+.main .product-list table tbody tr th a span{
+  color: #6c6c6c;
+  font-weight: 400;
+  margin-top: 5%;
+  display: block;
+}
+
+.main .product-list table tbody tr td {
+  font-size: 80%;
+
+  text-align: center;
+}
+
+.main .product-list table tbody tr th .product-thumbnail {
+  height: 50px;
+  float: left;
+  margin-right: 10px;
+}
+
+
+/*-----------------------------------*/
+/* -----modals---------------------  */
+/*-----------------------------------*/
+
+
+.modal-custom .modal-custom-dialog .modal-custom-content .modal-custom-body .modal-custom-row .modal-custom-tablebox .modal-custom-table .thead-custom {
+  color: #fff;
+  border-color: #454d55;
+  background-color: #d35400;
+}
+
+.modal-custom .modal-custom-dialog .modal-custom-content .modal-custom-body .modal-custom-row .modal-custom-tablebox .modal-custom-table .tbody-custom {
+  height: 300px;
+  overflow-y: scroll;
+}
+.modal-custom .modal-custom-dialog .modal-custom-content .modal-custom-body .modal-custom-row .modal-custom-tablebox .modal-custom-table .thead-custom th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+
+/*-----------------------------------*/
+/* -----Product Thumbnail-----------  */
+/*-----------------------------------*/
+
+.container .form-group .product-img .product-thumbnail-edit {
+  height: 50px;
+  position: relative;
+  top: -8%;
+  left: -70%;
+}

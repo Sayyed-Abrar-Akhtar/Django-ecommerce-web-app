@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title%}Dashboard{% endblock %}
+{% block head%}Dashboard{% endblock %}
+{% block content %}
+
+<div class="product-header">
+  <div class="product-add-btn">
+    <a href="/addproduct">Add Product</a>
+  </div>
+  <!--<div class="row">
+    {% for vendor in vendors %}
+    <div class="col-lg-2 col-md-2 col-sm-2 vendor-title">
+      <h5>{{vendor.vendor}}</h5>
+    </div>
+    {% endfor %}
+  </div>-->
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 searchbar">
+    <input type="text" class="form-control" id="search" name="search">
+  </div>
+</div>
+
+
+
+<table class="table table-light table-product">
+  <thead class="thead-dark thead-custom">
+    <tr>
+      <th scope="col" class="product-title">Product Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Inventory</th>
+      <th scope="col">Type</th>
+      <th scope="col">Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      {% load static %}
+      <th scope="row"><a href ="/editproduct/{{product.SKU}}"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{product.featureImg}}" alt=""><span>{{product.title}}</span></a></th>
+      <td>{{product.price}}</td>
+      <td>{{product.totalInventory}}</td>
+      <td>{{product.type}}</td>
+      <td>{{product.vendor}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

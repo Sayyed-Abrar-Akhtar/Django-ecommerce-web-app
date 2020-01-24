@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+{% block title%}Dashboard{% endblock %}
+{% block head%}Dashboard{% endblock %}
+{% block content %}
+
+
+
+<form method="POST" class="post-form" action="/updateproduct/{{products.SKU}}" enctype="multipart/form-data">
+	{% csrf_token%}
+  {% load static %}
+	<div class="container">
+		<br>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label"></label>
+			<div class="col-sm-8">
+				<h3>Enter Details</h3>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Title:</label>
+			<div class="col-sm-8 product-title">
+				<input type="text" name="title" maxlength="50" required="" id="id_title" value="{{products.title}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Description</label>
+			<div class="col-sm-8 product-description">
+				<textarea name="description" cols="40" rows="10" required="" id="id_description">{{products.description}}</textarea>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Price</label>
+			<div class="col-sm-8 product-price">
+				<input type="number" name="price" min="0" required="" id="id_price" value="{{products.price}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Featured Image:</label>
+			<div class="col-sm-8 product-img">
+				<input type="file" name="featureImg" accept="image/*" id="id_featureImg" >
+				<img class="rounded product-thumbnail-edit" src="{% static '/media/' %}{{products.featureImg}}" alt="Featured Image">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Display Images:</label>
+			<div class="col-sm-8 product-img">
+				<input type="file" name="displayImg" accept="image/*" id="id_displayImg">
+				<img class="rounded  product-thumbnail-edit" src="{% static '/media/' %}{{products.displayImg}}" alt="Display Image">
+
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Display Images:</label>
+			<div class="col-sm-8 product-img">
+				<input type="file" name="displayImgFirst" accept="image/*" id="id_displayImgFirst">
+				<img class="rounded  product-thumbnail-edit" src="{% static '/media/' %}{{products.displayImgFirst}}" alt="Display Image">
+
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Display Images:</label>
+			<div class="col-sm-8 product-img">
+				<input type="file" name="displayImgSecond" accept="image/*" id="id_displayImgSecond">
+				<img class="rounded product-thumbnail-edit" src="{% static '/media/' %}{{products.displayImgSecond}}" alt="Display Image">
+
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Display Images:</label>
+			<div class="col-sm-8 product-img">
+				<input type="file" name="displayImgThird" accept="image/*" id="id_displayImgThird">
+				<img class="rounded product-thumbnail-edit" src="{% static '/media/' %}{{products.displayImgThird}}" alt="Display Image">
+
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Vendor</label>
+			<div class="col-sm-8 product-vendor">
+				<select name="vendor" id="id_vendor">
+					{% for vendor in vendors %}
+				  <option value="{{vendor.vendor}}">{{vendor.vendor}}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">Product Type:</label>
+			<div class="col-sm-8 product-type">
+				<select name="type" id="id_type">
+					{% for type in types %}
+					  <option value={{type.type}}>{{type.type}}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label"></label>
+			<div class="col-sm-8">
+				<h3>Inventories</h3>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">XS:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="xs" min="0" required="" id="id_xs" value="{{products.xs}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">SM:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="sm" min="0" required="" id="id_sm" value="{{products.sm}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">MD:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="md" min="0" required="" id="id_md" value="{{products.md}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">LG:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="lg" min="0" required="" id="id_lg" value="{{products.lg}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">XL:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="xl" min="0" required="" id="id_xl" value="{{products.xl}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">XXL:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="xxl" min="0" required="" id="id_xxl" value="{{products.xxl}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label">XXXL:</label>
+			<div class="col-sm-8 product-inventory">
+				<input type="number" name="xxxl" min="0" required="" id="id_xxxl" value="{{products.xxxl}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-4 col-form-label"></label>
+			<div class="col-sm-8 product-update">
+				<button type="submit" class="btn btn-primary">Update</button>
+			</div>
+		</div>
+	</div>
+</form>
+<div class="row">
+	<div class="col-sm-4">
+
+	</div>
+	<div class="col-sm-4">
+		<a class="btn btn-danger" href="/deleteproduct/{{products.SKU}}">Delete</a>
+	</div>
+</div>
+{% block newtype %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

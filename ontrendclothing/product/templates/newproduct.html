@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% block title%}Dashboard{% endblock %}
+{% block head%}Dashboard{% endblock %}
+{% block content %}
+
+<form method="POST" class="post-form" action="/addproduct" enctype="multipart/form-data">
+	{% csrf_token%}
+	<div class="container">
+		<br>
+		<div class="form-group row">
+			<label class="col-sm-1 col-form-label"></label>
+			<div class="col-sm-4">
+				<h3>Enter Details</h3>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Title:</label>
+			<div class="col-sm-4">
+				{{ form.title }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Description</label>
+			<div class="col-sm-4">
+				{{ form.description }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Price</label>
+			<div class="col-sm-4">
+				{{ form.price }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Featured Image:</label>
+			<div class="col-sm-4">
+				{{ form.featureImg }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Display Images:</label>
+			<div class="col-sm-4">
+				{{ form.displayImg }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Display Images:</label>
+			<div class="col-sm-4">
+				{{ form.displayImgFirst }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Display Images:</label>
+			<div class="col-sm-4">
+				{{ form.displayImgSecond }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Display Images:</label>
+			<div class="col-sm-4">
+				{{ form.displayImgThird }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Vendor</label>
+			<div class="col-sm-4">
+				{{ form.vendor }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Product Type:</label>
+			<div class="col-sm-4">
+				{{ form.type }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-1 col-form-label"></label>
+			<div class="col-sm-4">
+				<h3>Inventories</h3>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">XS:</label>
+			<div class="col-sm-4">
+				{{ form.xs }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">SM:</label>
+			<div class="col-sm-4">
+				{{ form.sm }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">MD:</label>
+			<div class="col-sm-4">
+				{{ form.md }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">LG:</label>
+			<div class="col-sm-4">
+				{{ form.lg }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">XL:</label>
+			<div class="col-sm-4">
+				{{ form.xl }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">XXL:</label>
+			<div class="col-sm-4">
+				{{ form.xxl }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">XXXL:</label>
+			<div class="col-sm-4">
+				{{ form.xxxl }}
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-1 col-form-label"></label>
+			<div class="col-sm-4">
+				<button type="submit" class="btn btn-primary">Insert</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<a href="/addtype" class="btn btn-primary">New type</a>
+
+<a href="/addvendor" class="btn btn-primary">New Vendor</a>
+
+
+{% block newtype %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

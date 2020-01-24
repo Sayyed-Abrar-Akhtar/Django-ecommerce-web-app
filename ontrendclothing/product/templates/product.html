@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+	<table style="border: 1px solid">
+		<thead>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-1"></div>
+					<div class="col-lg-1"><h4>SKU</h4></div>
+					<div class="col-lg-1"><h4>Title</h4></div>
+					<div class="col-lg-1"><h4>Description</h4></div>
+					<div class="col-lg-1"><h4>Price</h4></div>
+					<div class="col-lg-1"><h4>Image</h4></div>
+					<div class="col-lg-1"><h4>Vendor</h4></div>
+					<div class="col-lg-1"><h4>Type</h4></div>
+					<div class="col-lg-2"></div>
+				</div>
+		</thead>
+		<br>
+		<tbody>
+			{% for product in products %}
+
+				<div class="row">
+					<div class="col-lg-1"></div>
+					<div class="col-lg-1">{{product.SKU}}</div>
+					<div class="col-lg-1">{{product.title}}</div>
+					<div class="col-lg-1">{{product.description}}</div>
+					<div class="col-lg-1">{{product.price}}</div>
+					<div class="col-lg-1">{{product.featureImg}}</div>
+					<div class="col-lg-1">{{product.vendor}}</div>
+          <div class="col-lg-1">{{product.type}}</div>
+					<div class="col-lg-1"><a href="/edit/{{ product.productSku }}">Edit</a></div>
+					<div class="col-lg-1"><a href="/delete/{{ product.productSku }}">Delete</a></div>
+					<div class="col-lg-2"></div>
+				</div>
+
+			{% endfor %}
+			</div>
+		</tbody>
+	</table>
+	<hr>
+	<center>
+		<a href="/addProduct">Add New Record</a>
+	</center>
+</body>
+</html>
