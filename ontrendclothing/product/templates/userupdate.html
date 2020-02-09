@@ -1,0 +1,90 @@
+{% extends "layout-frontend.html" %}
+    {% block class%} class="sticky"{% endblock %}
+    {% block content %}
+
+
+
+
+
+    
+     <section class="section-form">
+        <div class="row">
+            <h2>We're happy to hear from you</h2>
+        </div>
+
+
+
+        <div class="row">
+            <form method="post" action="/userupdate/{{user.id}}" class="contact-form" enctype="multipart/form-data">
+                {% csrf_token%}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="firstname">First Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="first_name" maxlength="30" required="" id="id_first_name" value="{{user.first_name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="lastname">Last Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="last_name" maxlength="30" required="" id="id_last_name" value="{{user.last_name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="username" maxlength="30" required="" id="id_username" value="{{user.username}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="email" name="useremail" maxlength="254" required="" id="id_useremail" value="{{user.useremail}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="password" name="password" required="" id="id_password" value="{{user.password}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="profile-pic">Profile Picture</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="file" name="img" accept="image/*" id="id_img">
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>&nbsp;</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="submit" value="Send it!">
+                    </div>
+                </div>
+
+            </form>
+            
+        </div>
+    </section>
+
+     {% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+{% extends "layout-frontend.html" %}
+        {% block class%} class="sticky"{% endblock %}
+        {% block content %}
+        <section class="section-form">
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+            </div>
+
+    
+
+            <div class="row">
+                <form method="post" action="/adduser" class="contact-form" enctype="multipart/form-data">
+                    {% csrf_token%}
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="firstname">First Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.first_name}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.last_name}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.username}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.useremail}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.password}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="profile-pic">Profile Picture</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.img}}
+                        </div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Send it!">
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+        </section>
+       {% endblock %}
+        

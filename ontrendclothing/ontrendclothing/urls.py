@@ -24,6 +24,7 @@ urlpatterns = [
     path('addtype', productviews.addtype),
     path('addvendor', productviews.addvendor),
     path('editproduct/<int:id>', productviews.editproduct),
+    path('edituser/<int:id>', productviews.edituser),
     path('updateproduct/<int:id>', productviews.updateproduct),
     path('deleteproduct/<int:id>', productviews.deleteproduct),
     path('search', productviews.search),
@@ -32,7 +33,9 @@ urlpatterns = [
     path('home', productviews.home),
     path('onlinestore', productviews.onlinestore),
     path('signup', productviews.signup),
-    path('register', productviews.register),
-    path('allproducts', productviews.allproducts)
+    path('adduser', productviews.adduser),
+    path('allproducts', productviews.allproducts),
+    path('showuser', productviews.showuser),
+    path('userupdate/<int:id>', productviews.userupdate),
     
 ]

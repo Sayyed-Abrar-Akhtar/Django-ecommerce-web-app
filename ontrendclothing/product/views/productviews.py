@@ -18,7 +18,9 @@ def login(request):
     if request.method == "POST":
         request.session['username'] = request.POST['username']
         request.session['password'] = request.POST['password']
-        user = User.objects.get(Q(username = request.POST.get('username')) & Q(password = request.POST.get('password')))       
+        user = User.objects.get(Q(username = request.POST.get('username')) & Q(password = request.POST.get('password'))) 
+        request.session['id']= user.id
+        print(request.session['id'])
         return redirect('/showproduct')
     return render(request, 'login.html')
 
@@ -69,11 +71,29 @@ def addvendor(request):
     return render(request, 'newvendor.html', {'form':form})
 
 
+def adduser(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/register')
+            except:
+                pass
+    else:
+        form = UserForm()
+    return render(request, 'register.html', {'form':form})
+
+
+
+
+
 @Authenticate.valid_user
 def showproduct(request):
     products = Product.objects.all().order_by('title')
     vendors = Vendor.objects.all()
-    return render(request, 'dashboard.html', {'products':products, 'vendors': vendors})
+    user = User.objects.get(id = request.session['id'])
+    return render(request, 'dashboard.html', {'products':products, 'vendors': vendors, 'user':user})
 
 
 @Authenticate.valid_user
@@ -89,25 +109,65 @@ def showVendor(request):
 
 
 
+@Authenticate.valid_user
+def showuser(request):
+    users = User.objects.all()
+    return render(request, 'dashboarduser.html', {'users':users})
+
+
+
+
+
 def editproduct(request, id):
-    vendors = Vendor.objects.all()
-    types = Type.objects.all()
-    products = Product.objects.get(SKU=id)
-    print(products)
-    return render(request, 'productedit.html', {'products':products, 'types':types, 'vendors':vendors})
+    if (request.session['username'] != "" ):
+        vendors = Vendor.objects.all()
+        types = Type.objects.all()
+        products = Product.objects.get(SKU=id)
+        return render(request, 'productedit.html', {'products':products, 'types':types, 'vendors':vendors})
+    else:
+        return redirect('/login')
+
+
+
+def edituser(request, id):
+    user = User.objects.get(id = id)
+    return render(request, 'userupdate.html', {'user':user})
+
+
+
+
+def userupdate(request, id):
+    user = User.objects.get(id=id)
+    if request.method == "POST":
+        form = UserForm(request.POST, request.FILES, instance = user)
+        #if form.is_valid:
+        form.save()
+        return redirect('/showproduct')
+    else:
+        form = UserForm()       
+    return render(request, 'userupdate.html', {'users':users})
+
+
+
 
 
 
 def updateproduct(request, id):
-    product = Product.objects.get(SKU=id)
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid:
-            form.save()
-        return redirect('/showproduct')
+    if (request.session['username'] != "" ):
+        product = Product.objects.get(SKU=id)
+        if request.method == "POST":
+            form = ProductForm(request.POST, request.FILES, instance=product)
+            if form.is_valid:
+                form.save()
+            return redirect('/showproduct')
+        else:
+            form = ProductForm()
+        return render(request, 'productedit.html', {'form': form})
     else:
-        form = ProductForm()
-    return render(request, 'productedit.html', {'form': form})
+        return redirect('/login')
+
+
+
 
 @Authenticate.valid_user
 def deleteproduct(request, id):
@@ -171,4 +231,4 @@ def register(request):
                 pass
     else:
         form = UserForm()
-    return render(request, 'signup-cust.html', {'form':form})
+    return render(request, 'signup.html', {'form':form})

@@ -1,0 +1,36 @@
+
+{% extends "dashboard.html" %}
+
+
+    {% block buttoncontent %}
+    <a href="/adduser">Add User</a>
+    {% endblock buttoncontent %}
+  
+
+
+{% block dashtable %}
+<table class="table table-light table-product">
+  <thead class="thead-dark thead-custom">
+    <tr>
+      <th scope="col" class="product-title">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    
+    <tr>
+      {% load static %}
+      <th scope="row"><a href ="/edituser/{{user.id}}"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{user.img}}" alt=""><span>{{user.first_name}}</span></a></th>
+      <td>{{user.last_name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.useremail}}</td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock dashtable %}
+

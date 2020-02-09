@@ -55,6 +55,7 @@ svg {
   height: 30px;
 }
 
+
 /*-----------------------------------*/
 /* Header */
 /*-----------------------------------*/
@@ -183,6 +184,9 @@ header .nav-row {
   padding: 10px 20px 10px 20px;
 }
 
+
+
+
 .main .side-menu ul li a {
   text-decoration: none;
   color: #6c6363;
@@ -191,13 +195,13 @@ header .nav-row {
   padding-top: 1px;
 }
 
-.main .side-menu ul li a:hover, .main .side-menu ul li a .sidebar-menu-icon:hover {
+.main .side-menu ul li a:hover, 
+.main .side-menu ul li a .sidebar-menu-icon:hover {
   color: #d35400;
   fill: #d35400;
 }
 
  .main .side-menu ul li a .sidebar-menu-icon{
-   fill: #6c6363;
    height: 20px;
  }
  

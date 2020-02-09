@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% block title%}Dashboard{% endblock %}
 {% block head%}Dashboard{% endblock %}
 {% block content %}
 
@@ -10,7 +9,9 @@
     </a>
   </div>
   <div class="product-add-btn">
+    {% block buttoncontent %}
     <a href="/addproduct">Add Product</a>
+    {% endblock buttoncontent %}
   </div>
   <!--<div class="row">
     {% for vendor in vendors %}
@@ -28,29 +29,36 @@
 </div>
 
 
-
+{% block dashtable %}
 <table class="table table-light table-product">
   <thead class="thead-dark thead-custom">
     <tr>
+      {% block dashboardtblhead %}
       <th scope="col" class="product-title">Product Title</th>
       <th scope="col">Price</th>
       <th scope="col">Inventory</th>
       <th scope="col">Type</th>
       <th scope="col">Vendor</th>
+      {% endblock dashboardtblhead %}
     </tr>
   </thead>
   <tbody>
     {% for product in products %}
+    
     <tr>
       {% load static %}
+      
       <th scope="row"><a href ="/editproduct/{{product.SKU}}"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{product.featureImg}}" alt=""><span>{{product.title}}</span></a></th>
       <td>{{product.price}}</td>
       <td>{{product.totalInventory}}</td>
       <td>{{product.type}}</td>
       <td>{{product.vendor}}</td>
+      
     </tr>
     {% endfor %}
   </tbody>
 </table>
+{% endblock dashtable %}
+
 
 {% endblock %}
