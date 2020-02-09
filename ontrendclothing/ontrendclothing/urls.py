@@ -29,4 +29,10 @@ urlpatterns = [
     path('search', productviews.search),
     path('login', productviews.login),
     path('logout', productviews.logout),
+    path('home', productviews.home),
+    path('onlinestore', productviews.onlinestore),
+    path('signup', productviews.signup),
+    path('register', productviews.register),
+    path('allproducts', productviews.allproducts)
+    
 ]

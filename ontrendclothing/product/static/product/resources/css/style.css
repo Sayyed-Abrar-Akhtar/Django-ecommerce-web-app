@@ -70,13 +70,12 @@ header .nav-row {
 
 }
 .nav-row .ontrend-logo .logo-img {
-  height: 90%;
-  margin:2.5% 0 0 10px;
+  height: 80%;
+  margin: 3px 0 0 10px;
 
 }
 
-.nav-row .page-title {
-}
+
 
 .nav-row .page-title h1 {
   letter-spacing: 1px;
@@ -219,7 +218,18 @@ header .nav-row {
   width: 100%;
 }
 
-.product-header {
+.product-header .eye-icon .icon-eye {
+  position: absolute;
+  top: 4%;
+  margin-left: 10px;
+}
+
+.icon-eye {
+  fill: #6c6363;
+}
+
+.icon-eye:hover {
+  fill: #d35400;
 }
 
 .product-add-btn {

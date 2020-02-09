@@ -1,0 +1,76 @@
+{% extends "layout-frontend.html" %}
+        {% block class%} class="sticky"{% endblock %}
+        {% block content %}
+        <section class="section-form">
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+            </div>
+
+    
+    password   = models.CharField(max_length=50)
+    is_staff   = models.BooleanField()
+    is_admin   = models.BooleanField(default=False)
+    img       = models.ImageField(default="img.jpg", upload_to='images/')
+
+
+
+            <div class="row">
+                <form method="post" action="/register" class="contact-form" enctype="multipart/form-data">
+                    {% csrf_token%}
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="firstname">First Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.first_name}}
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.last_name}}
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.username}}
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.useremail}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.password}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="profile-pic">Profile Picture</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{form.img}}
+                        </div>
+                    </div>  
+                </form>
+                
+            </div>
+        </section>
+       {% endblock %}
+        

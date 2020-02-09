@@ -6,10 +6,7 @@ from product.authenticate import Authenticate
 from django.db.models import Q 
 
 
-'''
-def login(request):
-    return render(request, 'login.html')
-    '''
+
 
 def logout(request):
     del request.session['username']
@@ -22,9 +19,6 @@ def login(request):
         request.session['username'] = request.POST['username']
         request.session['password'] = request.POST['password']
         user = User.objects.get(Q(username = request.POST.get('username')) & Q(password = request.POST.get('password')))       
-        
-        request.session['admin'] = user.is_admin
-        
         return redirect('/showproduct')
     return render(request, 'login.html')
 
@@ -94,7 +88,7 @@ def showVendor(request):
     return render(request, 'newvendor.html', {'vendors':vendors})
 
 
-@Authenticate.valid_user
+
 def editproduct(request, id):
     vendors = Vendor.objects.all()
     types = Type.objects.all()
@@ -103,7 +97,7 @@ def editproduct(request, id):
     return render(request, 'productedit.html', {'products':products, 'types':types, 'vendors':vendors})
 
 
-@Authenticate.valid_user
+
 def updateproduct(request, id):
     product = Product.objects.get(SKU=id)
     if request.method == "POST":
@@ -134,33 +128,47 @@ def search(request):
     products = Product.objects.filter(title__icontains=request.GET['search']).values()
     return JsonResponse(list(products), safe=False)
 
-'''
-def login(request):
-	if request.method == "POST":
-		accEmail = request.POST.get('text')
-		accPassword = request.POST.get('password') 
-		accUsername = request.POST.get('text')
-		user = User.objects.filter((Q(email = accEmail) & Q(password = accPassword)) | (Q(username = accUsername) & Q(password = accPassword))).count()
-		if user == 1:
-			return redirect('/showproduct')	
-	return render(request, 'login.html')
-'''
 
-'''def login(request):
-    if request.method == "POST":
-        print(request.POST.get('username'))
-        print(request.POST.get('password'))
-        usercount = User.objects.filter(Q(username = request.POST.get('username')) & Q(password = request.POST.get('password'))) 
-        print(usercount)
-        if usercount.count() == 1:
-            request.session['username'] = request.POST['username']
-            request.session['password'] = request.POST['password']
-            user = User.objects.get(Q(username = request.POST.get('username')) & Q(password = request.POST.get('password'))) 
-            print(user)
-            print(user.is_admin)
-            if user.is_admin == True:
-                request.session['is_admin'] = user.is_admin
-            else:
-                request.session['is_admin'] = False
-            return redirect('/showproduct')
-    return render(request, 'login.html')'''
+def home(request):
+    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
+    products = Product.objects.all()
+    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products})
+
+def onlinestore(request):
+    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
+    products = Product.objects.all()
+    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products})
+
+
+def allproducts(request):
+    trendyproducts =  products = Product.objects.all().order_by('-SKU');
+    products = Product.objects.all()
+    return render(request, 'allproducts.html', {'trendyproducts':trendyproducts, 'products':products})
+
+def signup(request):
+    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
+    '''if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/customOnlinestore')
+            except:
+                pass
+    else:
+        form = CustomerForm()'''
+    return render(request, 'signup.html', {'trendyproducts':trendyproducts})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/login')
+            except:
+                pass
+    else:
+        form = UserForm()
+    return render(request, 'signup-cust.html', {'form':form})

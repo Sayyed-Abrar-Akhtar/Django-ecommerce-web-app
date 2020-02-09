@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/normalize.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/grid.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/ionicons.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/animate.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'product/resources/css/style-main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'product/resources/css/queries.css' %}">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+        
+        <title>OnTrend Clothing</title>
+    </head>
+    <body>
+        <header {% block header%} {% endblock header%}>
+            <nav{% block class%} {% endblock %}>
+                <div class="row">
+                    <img src="{% static 'product/resources/img/logo.png' %}" alt="OnTrend Clothing logo" class="logo">
+                    <img src="{% static 'product/resources/img/logo-green.png' %}" alt="OnTrend Clothing logo" class="logo-green">
+                    <ul class="main-nav js--main-nav">
+                        {% block navelements%}
+                        
+                        {% endblock navelements%}
+                        <li><a href="#plans"></i>Login</a></li>
+                    </ul>
+                    <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+                </div>
+            </nav{%>
+            {% block banner %}
+            
+            {% endblock banner %}
+        </header>
+        {% block content %}
+        
+        {% endblock content %}
+        
+        
+       
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">iOS App</a></li>
+                        <li><a href="#">Android App</a></li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    Here at On Trend Clothing Store, we are соmmіttеd tо еnѕuring we оffеr еxсеllеnt vаluе tо our сuѕtоmеrѕ. Wе рlау by the rulеs and асt wіth hоnеѕtу аnd integrity. Our сuѕtоmеrѕ аrе thе heart оf аll what wе dо аnd wе strive tо meet and еxсееd customer expectations and inspire loyalty. Our customers rеlу оn оur guаrаntее оf соmрlеtе іntеgrіtу аnd соmmіtmеnt tо thеіr іntеrеѕtѕ and we are dedicated to delivering the best in customer service.
+                </p>
+                <p>
+                    Build with <i class="ion-ios-heart" style="color: #ea0000; padding: 0 3px;"></i> for modern web project &copy; Sayyed Abrar Akhtar.
+                </p>
+            </div>
+        </footer>
+    {% load static %}    
+    <script type="text/javascript"  src="'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'product/vendors/js/respond.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'product/vendors/js/html5shiv.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'product/vendors/js/selectivizr.min.js' %}"></script>
+    <script type="text/javascript"  src="{% static 'product/vendors/js/jquery.waypoints.min.js' %}"></script>
+        <script language="JavaScript" type="text/javascript"  src="{% static 'product/resources/js/script-main.js' %}"></script>
+    </body>  
+    
+    
+    
+</html>

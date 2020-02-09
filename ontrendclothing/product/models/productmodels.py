@@ -54,9 +54,7 @@ class User(models.Model):
     last_name  = models.CharField(max_length=30)
     useremail  = models.EmailField()
     password   = models.CharField(max_length=50)
-    is_staff   = models.BooleanField()
-    is_admin   = models.BooleanField(default=False)
-
+    img       = models.ImageField(default="img.jpg", upload_to='images/')
     class Meta:
         db_table = "user"
 
