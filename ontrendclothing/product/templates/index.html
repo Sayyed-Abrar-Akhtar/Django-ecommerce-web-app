@@ -33,16 +33,14 @@
 
                 {% for trendyproduct in trendyproducts %}
                 {% load static %}
-                <div class="col span-1-of-4 box">
-                    <img src="{% static '/media/' %}{{trendyproduct.featureImg}}" alt="">
-                    
-                    <div class="product-details">
-                        <h3>{{trendyproduct.title}}</h3>
-                        <i class="ion-social-usd"></i>
-                        {{trendyproduct.price}}
-                    </div>
-                    
-                </div>
+                <div class="span-1-of-4 allproducts">
+                <img src="{% static '/media/' %}{{trendyproduct.displayImgFirst}}">
+                
+                <h3>{{trendyproduct.title}}</h3>
+                <h3><i class="ion-social-usd"></i>
+                {{trendyproduct.price}}
+                </h3>
+            </div>
                 {% endfor %}
                
             </div>

@@ -78,6 +78,7 @@ class Customer(models.Model):
 
 class Customize(models.Model):
     mainbanner = models.ImageField(default="hero.jpg", upload_to='images/')
+    reviewbanner = models.ImageField(default="hero.jpg", upload_to='images/')
     class Meta:
         db_table = "customize"
 

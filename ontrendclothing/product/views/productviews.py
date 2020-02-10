@@ -121,6 +121,20 @@ def addreview(request):
     return render(request, 'revadd.html', {'revform':revform})
 
 
+def customize(request):
+    if request.method == 'POST':
+        customizeform = CustomizeForm(request.POST, request.FILES)
+        if customizeform.is_valid():
+            try:
+                customizeform.save()
+                return redirect('/showproduct')
+            except:
+                pass
+    else:
+        customizeform = CustomizeForm()
+    return render(request, 'customize.html', {'customizeform':customizeform})
+
+
 
 @Authenticate.valid_user
 def showproduct(request):
@@ -264,24 +278,27 @@ def home(request):
     trendyproducts = Product.objects.all().order_by('price') [:8];
     products = Product.objects.all()
     customize = Customize.objects.all()
-    reviews = Review.objects.all().order_by('-id') [:3];
-    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'reviews':reviews})
+    reviews = Review.objects.all().order_by('-id') [:3]
+    banner = Customize.objects.all().order_by('-id')
+    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'reviews':reviews, 'banner':banner})
 
 def custhome(request):
     trendyproducts = Product.objects.all().order_by('price') [:8];
     products = Product.objects.all()
     customize = Customize.objects.all()
     cust =  Customer.objects.get(id=request.session['custid'])
-    reviews = Review.objects.all().order_by('-id') [:3];
-    return render(request, 'custindex.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'cust':cust, 'reviews':reviews})
+    reviews = Review.objects.all().order_by('-id') [:3]
+    banner = Customize.objects.all().order_by('-id');
+    return render(request, 'custindex.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'cust':cust, 'reviews':reviews, 'banner':banner})
 
 
 def onlinestore(request):
     trendyproducts =  products = Product.objects.all().order_by('price') [:8];
     products = Product.objects.all()
     customize = Customize.objects.all()
-    reviews = Review.objects.all().order_by('-id') [:3];
-    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'reviews':reviews})
+    reviews = Review.objects.all().order_by('-id') [:3]
+    banner = Customize.objects.all().order_by('-id');
+    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'reviews':reviews, 'banner':banner})
 
 
 def allproducts(request):

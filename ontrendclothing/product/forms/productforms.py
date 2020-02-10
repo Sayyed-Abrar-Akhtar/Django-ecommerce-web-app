@@ -36,7 +36,7 @@ class CustomerForm(forms.ModelForm):
 class CustomizeForm(forms.ModelForm):
     class Meta:
         model = Customize
-        fields = ['mainbanner']
+        fields = "__all__"
 
 
 class ReviewForm(forms.ModelForm):

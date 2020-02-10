@@ -1,0 +1,46 @@
+{% extends "layout-frontend.html" %}
+        {% block class%} class="sticky"{% endblock %}
+        {% block content %}
+        <section class="section-form">
+            <div class="row">
+                <h2>Customize Website</h2>
+            </div>
+
+    
+
+            <div class="row">
+                <form method="post" action="/customize" class="contact-form" enctype="multipart/form-data">
+                    {% csrf_token%}
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Name">Main Banner</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{ customizeform.mainbanner }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Review Banner</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.reviewbanner}}
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Send it!">
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+        </section>
+       {% endblock %}
+        
