@@ -1,5 +1,5 @@
 from django import forms
-from product.models.productmodels import Product, Type, Vendor, User
+from product.models.productmodels import Product, Type, Vendor, User, Customer, Customize, Review
 
 class ProductForm(forms.ModelForm):
     #productsize = forms.ModelChoiceField(queryset=Size.objects.all())
@@ -23,3 +23,23 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'useremail', 'password', 'img']
+
+
+class CustomerForm(forms.ModelForm):
+    key = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = Customer
+        fields = ['user', 'first_name', 'last_name', 'email', 'key', 'img']
+
+
+
+class CustomizeForm(forms.ModelForm):
+    class Meta:
+        model = Customize
+        fields = ['mainbanner']
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = "__all__"

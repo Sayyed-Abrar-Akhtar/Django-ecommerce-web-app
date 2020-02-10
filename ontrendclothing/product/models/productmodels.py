@@ -54,9 +54,39 @@ class User(models.Model):
     last_name  = models.CharField(max_length=30)
     useremail  = models.EmailField()
     password   = models.CharField(max_length=50)
-    img       = models.ImageField(default="img.jpg", upload_to='images/')
+    isAdmin    = models.BooleanField(default=False)
+    img        = models.ImageField(default="img.jpg", upload_to='images/')
     class Meta:
         db_table = "user"
 
         def __str__(self):
             return self.username
+
+class Customer(models.Model):
+    user       = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name  = models.CharField(max_length=30)
+    email      = models.EmailField()
+    key        = models.CharField(max_length=50)
+    img        = models.ImageField(default="img.jpg", upload_to='images/')
+    class Meta:
+        db_table = "customer"
+
+        def __str__(self):
+            return self.user
+
+
+class Customize(models.Model):
+    mainbanner = models.ImageField(default="hero.jpg", upload_to='images/')
+    class Meta:
+        db_table = "customize"
+
+
+        
+
+class Review(models.Model):
+    name = models.CharField(max_length=50)
+    review = models.TextField()
+    img = models.ImageField(default="hero.jpg", upload_to='images/')
+    class Meta:
+        db_table = "review"

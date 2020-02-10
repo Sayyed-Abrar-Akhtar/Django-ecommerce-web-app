@@ -17,6 +17,14 @@ secondary color: #d35400;
     box-sizing: border-box;
 }
 
+.row-inp {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align:center;
+    padding: 20px 0;
+}
+
+
 html {
     background-color: #f2f2f2;
     color: #555;
@@ -54,6 +62,35 @@ h3 {
 svg {
   height: 30px;
 }
+
+/* ----------------------------------------------- */
+/* FORM */
+/* ----------------------------------------------- */
+select,
+input[type=file],
+input[type=number],
+input[type=submit], 
+input[type=text],
+input[type=email],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {outline: none;}
 
 
 /*-----------------------------------*/
@@ -388,4 +425,22 @@ header .nav-row {
   position: relative;
   top: -8%;
   left: -70%;
+}
+
+
+.row-info {
+ background-color:
+#cecece;
+padding: 10px 0;
+border: 1px solid
+#939393;
+box-shadow: 2px 2px
+#cec5c5;
+}
+
+.row-detail {
+  background-color: red;
+  padding: 10px 0;
+  border: 1px solid red;
+  box-shadow: 5px 10px #888888;
 }

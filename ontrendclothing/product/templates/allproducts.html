@@ -9,9 +9,26 @@
 
 {% block content %}
 
-    
+    {% load static %}
     <section>
     
+
+    	<h2>All Products</h2>
+    	<div class="row">
+    		{% for product in products %}
+    		<div class="span-1-of-4 allproducts">
+    			<img src="{% static '/media/' %}{{product.displayImgFirst}}">
+    			
+                <h3>{{product.title}}</h3>
+                <h3><i class="ion-social-usd"></i>
+                {{product.price}}
+                </h3>
+    		</div>
+    		{% endfor %}
+    	</div>
+
+
+
     </section>
 
 

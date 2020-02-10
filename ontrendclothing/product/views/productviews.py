@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from product.models.productmodels import Product, Type, Vendor, User
-from product.forms.productforms import ProductForm, TypeForm, VendorForm, UserForm
+from product.models.productmodels import Product, Type, Vendor, User, Customer, Customize, Review
+from product.forms.productforms import ProductForm, TypeForm, VendorForm, UserForm, CustomerForm, CustomizeForm, ReviewForm
 from django.http import HttpResponse,JsonResponse
 from product.authenticate import Authenticate
 from django.db.models import Q 
@@ -8,10 +8,6 @@ from django.db.models import Q
 
 
 
-def logout(request):
-    del request.session['username']
-    del request.session['password']
-    return redirect('/login')
 
 
 def login(request):
@@ -20,10 +16,21 @@ def login(request):
         request.session['password'] = request.POST['password']
         user = User.objects.get(Q(username = request.POST.get('username')) & Q(password = request.POST.get('password'))) 
         request.session['id']= user.id
+        request.session['isAdmin']= user.isAdmin
         print(request.session['id'])
+        print(request.session['isAdmin'])
         return redirect('/showproduct')
     return render(request, 'login.html')
 
+def custLogin(request):
+    if request.method == "POST":
+        request.session['user'] = request.POST['user']
+        request.session['key'] = request.POST['key']
+        cust = Customer.objects.get(Q(user = request.POST.get('user')) & Q(key = request.POST.get('key'))) 
+        request.session['custid']= cust.id
+        print(request.session['custid']) 
+        return redirect('/custhome')
+    return render(request, 'custlogin.html')
 
 @Authenticate.valid_user
 def addproduct(request):
@@ -77,7 +84,7 @@ def adduser(request):
         if form.is_valid():
             try:
                 form.save()
-                return redirect('/register')
+                return redirect('/login')
             except:
                 pass
     else:
@@ -85,6 +92,33 @@ def adduser(request):
     return render(request, 'register.html', {'form':form})
 
 
+def addcust(request):
+    if request.method == 'POST':
+        custform = CustomerForm(request.POST, request.FILES)
+        if custform.is_valid():
+            try:
+                custform.save()
+                return redirect('/custLogin')
+            except:
+                pass
+    else:
+        custform = CustomerForm()
+    return render(request, 'custadd.html', {'custform':custform})
+    
+
+
+def addreview(request):
+    if request.method == 'POST':
+        revform = ReviewForm(request.POST, request.FILES)
+        if revform.is_valid():
+            try:
+                revform.save()
+                return redirect('/home')
+            except:
+                pass
+    else:
+        revform = ReviewForm()
+    return render(request, 'revadd.html', {'revform':revform})
 
 
 
@@ -112,10 +146,15 @@ def showVendor(request):
 @Authenticate.valid_user
 def showuser(request):
     users = User.objects.all()
-    return render(request, 'dashboarduser.html', {'users':users})
+    user = User.objects.get(id = request.session['id'])
+    return render(request, 'dashboarduser.html', {'users':users, 'user':user})
 
 
-
+@Authenticate.valid_user
+def showcust(request):
+    custs = Customer.objects.all()
+    user = User.objects.get(id = request.session['id'])
+    return render(request, 'dashboardcust.html', {'custs':custs, 'user':user})
 
 
 def editproduct(request, id):
@@ -131,24 +170,13 @@ def editproduct(request, id):
 
 def edituser(request, id):
     user = User.objects.get(id = id)
-    return render(request, 'userupdate.html', {'user':user})
+    return render(request, 'updateuser.html', {'user':user})
 
 
 
-
-def userupdate(request, id):
-    user = User.objects.get(id=id)
-    if request.method == "POST":
-        form = UserForm(request.POST, request.FILES, instance = user)
-        #if form.is_valid:
-        form.save()
-        return redirect('/showproduct')
-    else:
-        form = UserForm()       
-    return render(request, 'userupdate.html', {'users':users})
-
-
-
+def editcust(request, id):
+    cust = Customer.objects.get(id = id)
+    return render(request, 'custupdate.html', {'cust':cust})
 
 
 
@@ -168,19 +196,99 @@ def updateproduct(request, id):
 
 
 
+def updateuser(request, id):
+    user = User.objects.get(id=id)
+    if request.method == "POST":
+        form = UserForm(request.POST, request.FILES, instance = user)
+        if form.is_valid:
+            form.save()
+        return redirect('/showproduct')
+    else:
+        form = UserForm()       
+    return render(request, 'updateuser.html', {'user':user})
 
-@Authenticate.valid_user
+
+def updatecust(request, id):
+    cust = Customer.objects.get(id=id)
+    if request.method == "POST":
+        form = CustomerForm(request.POST, request.FILES, instance = cust)
+        if form.is_valid:
+            form.save()
+        return redirect('/custhome')
+    else:
+        form = CustomerForm()       
+    return render(request, 'custupdate.html', {'cust':cust})
+
+
+
 def deleteproduct(request, id):
     product = Product.objects.get(SKU = id)
     print("hi deleting")
-    print(request.session['admin'])
-    if request.session['admin'] == True:
+    print(request.session['isAdmin'])
+    if request.session['isAdmin'] == True:
         print("entered if in delete")
         product.delete()
     else:
         return redirect('/showproduct')
     return redirect('/showproduct')
-    
+
+
+
+def deleteuser(request, id):
+    user = User.objects.get(id = id)
+    print("hi deleting")
+    print(request.session['isAdmin'])
+    if request.session['isAdmin'] == True or request.session['id']==user.id:
+        print("entered if in delete")
+        user.delete()
+    else:
+        return redirect('/showproduct')
+    return redirect('/showuser')
+
+
+
+def deletecust(request, id):
+    cust = Customer.objects.get(id = id)
+    print("hi deleting")
+    if request.session['custid'] == cust.id:
+        print("entered if in delete")
+        cust.delete()
+    else:
+        return redirect('/custhome')
+    return redirect('/home')
+
+
+
+
+def home(request):
+    trendyproducts = Product.objects.all().order_by('price') [:8];
+    products = Product.objects.all()
+    customize = Customize.objects.all()
+    reviews = Review.objects.all().order_by('-id') [:3];
+    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'reviews':reviews})
+
+def custhome(request):
+    trendyproducts = Product.objects.all().order_by('price') [:8];
+    products = Product.objects.all()
+    customize = Customize.objects.all()
+    cust =  Customer.objects.get(id=request.session['custid'])
+    reviews = Review.objects.all().order_by('-id') [:3];
+    return render(request, 'custindex.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'cust':cust, 'reviews':reviews})
+
+
+def onlinestore(request):
+    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
+    products = Product.objects.all()
+    customize = Customize.objects.all()
+    reviews = Review.objects.all().order_by('-id') [:3];
+    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize, 'reviews':reviews})
+
+
+def allproducts(request):
+    trendyproducts =  products = Product.objects.all().order_by('-SKU');
+    products = Product.objects.all()
+    customize = Customize.objects.all()
+    return render(request, 'allproducts.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize})
 
 
 
@@ -189,46 +297,19 @@ def search(request):
     return JsonResponse(list(products), safe=False)
 
 
-def home(request):
-    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
-    products = Product.objects.all()
-    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products})
-
-def onlinestore(request):
-    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
-    products = Product.objects.all()
-    return render(request, 'index.html', {'trendyproducts':trendyproducts, 'products':products})
 
 
-def allproducts(request):
-    trendyproducts =  products = Product.objects.all().order_by('-SKU');
-    products = Product.objects.all()
-    return render(request, 'allproducts.html', {'trendyproducts':trendyproducts, 'products':products})
-
-def signup(request):
-    trendyproducts =  products = Product.objects.all().order_by('price') [:8];
-    '''if request.method == 'POST':
-        form = CustomerForm(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return redirect('/customOnlinestore')
-            except:
-                pass
-    else:
-        form = CustomerForm()'''
-    return render(request, 'signup.html', {'trendyproducts':trendyproducts})
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return redirect('/login')
-            except:
-                pass
-    else:
-        form = UserForm()
-    return render(request, 'signup.html', {'form':form})
+
+
+def logout(request):
+    del request.session['username']
+    del request.session['password']
+    return redirect('/login')
+
+
+def custLogout(request):
+    del request.session['user']
+    del request.session['key']
+    return redirect('/home')

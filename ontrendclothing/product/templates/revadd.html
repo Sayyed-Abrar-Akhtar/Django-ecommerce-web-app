@@ -1,47 +1,48 @@
-
-
-
-
 {% extends "layout-frontend.html" %}
         {% block class%} class="sticky"{% endblock %}
         {% block content %}
         <section class="section-form">
             <div class="row">
-            	<p style="color: red; text-align: center;"><strong><em>Warning: Only authorised user can have access!!</em></strong></p><br>
-                <h2>Login to Main Dashboard</h2>
-
+                <h2>Please share us your experience with the website!</h2>
             </div>
 
     
 
             <div class="row">
-                <form method="post" action="/login" class="contact-form">
+                <form method="post" action="/addreview" class="contact-form" enctype="multipart/form-data">
                     {% csrf_token%}
-
-                      <div class="row">
+                    <div class="row">
                         <div class="col span-1-of-3">
-                            <label for="Username">Username</label>
+                            <label for="Name">Name</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="text" name="username" required="" maxlength="30" id="id_username">
+                            {{revform.name}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col span-1-of-3">
-                            <label for="Password">Password</label>
+                            <label for="Review">Review</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="password" name="password"  maxlength="30" required="" id="id_password">
+                            {{revform.review}}
                         </div>
                     </div>
-
-
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Image">Image</label>
+  
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{revform.img}}
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label>&nbsp;</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="submit" value="Get in!">
+                            <input type="submit" value="Send it!">
                         </div>
                     </div>
 

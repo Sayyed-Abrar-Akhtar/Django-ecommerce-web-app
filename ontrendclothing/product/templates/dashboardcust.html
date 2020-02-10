@@ -3,7 +3,7 @@
 
 
     {% block buttoncontent %}
-    <a href="/adduser">Add User</a>
+    <a href="/addcust">Add Customer</a>
     {% endblock buttoncontent %}
   
 
@@ -16,19 +16,19 @@
       <th scope="col">Last Name</th>
       <th scope="col">Username</th>
       <th scope="col">Email</th>
-      <th scope="col">Admin</th>
+      <th scope="col">Reviews</th>
     </tr>
   </thead>
   <tbody>
-    {% for user in users %}
+    {% for cust in custs %}
     
     <tr>
       {% load static %}
-      <th scope="row"><a href ="/edituser/{{user.id}}"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{user.img}}" alt=""><span>{{user.first_name}}</span></a></th>
-      <td>{{user.last_name}}</td>
-      <td>{{user.username}}</td>
-      <td>{{user.useremail}}</td>
-      <td>{{user.isAdmin}}</td>
+      <th scope="row"><a href ="/editcust/{{cust.id}}"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{cust.img}}" alt=""><span>{{cust.first_name}}</span></a></th>
+      <td>{{cust.last_name}}</td>
+      <td>{{cust.user}}</td>
+      <td>{{cust.email}}</td>
+      <td>{{cust.prodreview}}</td>
     </tr>
     {% endfor %}
   </tbody>

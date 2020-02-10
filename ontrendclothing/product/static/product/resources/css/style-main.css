@@ -138,6 +138,43 @@ a:active {
 }
 
 /* ----- BUTTONS ----- */
+
+
+.custom-btn-del {
+    border: 1px solid #b90000e0;
+    position: relative;
+    width: 33%;
+    top: -2.2em;
+    left: 31%;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color: #fff;
+    
+}   
+
+.custom-btn-del a{
+    text-decoration: none;
+    color: #b90000e0;
+    border-bottom: none;
+    padding: 10px 0 10px 8px;
+    font-weight: 500;
+}
+
+.custom-btn-del:hover {
+    background-color: #b90000e0;
+    color: #fff;
+}
+
+.custom-btn-del a:hover {
+    color: #fff;
+}
+
+
+
+
 .btn:link,
 .btn:visited,
 input[type=submit] {
@@ -261,7 +298,20 @@ input[type=submit]:active {
     color: #e67e22;
 }
 
+/* user profile picture in custom index */
 
+.custindex-user-img {
+    position: relative;
+    border-radius: 200%;
+    left: 81%;
+    top: 10px;
+    width: 33px;
+    height: auto; 
+}
+
+.customindex-user {
+    margin-left: 35px;
+}
 
 /* Mobile navi */
 .mobile-nav-icon {
@@ -379,6 +429,8 @@ cite img {
     margin: 0 auto;
 }
 
+
+input[type=file],
 input[type=text],
 input[type=email],
 input[type=password],
@@ -486,3 +538,29 @@ footer p {
 
 
 
+/* ----------------------------------------------- */
+/* ----------------ALL PRODUCTS -------------------*/
+/* ----------------------------------------------- */
+
+
+.allproducts {
+    float: left;
+    background-color: #dbdbdb;
+    margin-left: 1.2%;
+    margin-bottom: 40px;
+    border: 1px solid #c8c7c7;
+    border-radius: 2%;
+    box-shadow: 2px 2px #b7b7b161;
+}
+.allproducts img {
+    width: 90%;
+    margin: 0 5%;
+    height: auto;
+}
+
+.allproducts h3 {
+    text-align: center;
+    color: #646464;
+    font-weight: 300;
+    margin: 8px;
+}

@@ -1,0 +1,10 @@
+
+
+
+{% extends "index.html" %}
+{% load static %}
+{% block custdetails %}
+    <li><a href="/editcust/{{cust.id}}"><img class="custindex-user-img" src="{% static '/media/' %}{{ cust.img }}" width="50" height="50" alt="profile picture"></a></li>
+    <li><a class="customindex-user" href="/editcust/{{cust.id}}">{{ cust.first_name }}</a></li>
+    <li><a href="/custLogout">Logout</a></li>
+{% endblock custdetails %}

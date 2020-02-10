@@ -18,13 +18,17 @@
         <header {% block header%} {% endblock header%}>
             <nav{% block class%} {% endblock %}>
                 <div class="row">
+                    <a href="/home">
                     <img src="{% static 'product/resources/img/logo.png' %}" alt="OnTrend Clothing logo" class="logo">
+                    </a>
+                    <a href="/home">
                     <img src="{% static 'product/resources/img/logo-green.png' %}" alt="OnTrend Clothing logo" class="logo-green">
+                    </a>
                     <ul class="main-nav js--main-nav">
                         {% block navelements%}
                         
                         {% endblock navelements%}
-                        <li><a href="/login"></i>Login</a></li>
+                        
                     </ul>
                     <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
                 </div>

@@ -9,14 +9,14 @@
     
 
             <div class="row">
-                <form method="post" action="/adduser" class="contact-form" enctype="multipart/form-data">
+                <form method="post" action="/addcust" class="contact-form" enctype="multipart/form-data">
                     {% csrf_token%}
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="firstname">First Name</label>
                         </div>
                         <div class="col span-2-of-3">
-                            {{form.first_name}}
+                            {{custform.first_name}}
                         </div>
                     </div>
                     <div class="row">
@@ -24,7 +24,7 @@
                             <label for="lastname">Last Name</label>
                         </div>
                         <div class="col span-2-of-3">
-                            {{form.last_name}}
+                            {{custform.last_name}}
                         </div>
                     </div>
                     <div class="row">
@@ -33,7 +33,7 @@
   
                         </div>
                         <div class="col span-2-of-3">
-                            {{form.username}}
+                            {{custform.user}}
                         </div>
                     </div>
                     <div class="row">
@@ -41,7 +41,7 @@
                             <label for="email">Email</label>
                         </div>
                         <div class="col span-2-of-3">
-                            {{form.useremail}}
+                            {{custform.email}}
                         </div>
                     </div>
                     <div class="row">
@@ -49,18 +49,19 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="col span-2-of-3">
-                            {{form.password}}
+                            {{custform.key}}
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="profile-pic">Profile Picture</label>
                         </div>
                         <div class="col span-2-of-3">
-                            {{form.img}}
+                            {{custform.img}}
                         </div>
                     </div> 
-
+                     
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label>&nbsp;</label>
