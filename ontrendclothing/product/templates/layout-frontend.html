@@ -4,11 +4,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         {% load static %}
+
         <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/normalize.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/grid.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/ionicons.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/animate.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'media/images/style-main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'product/resources/css/style-main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'product/resources/css/queries.css' %}">
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
         
@@ -73,14 +74,12 @@
             </div>
         </footer>
     {% load static %}    
-    <script type="text/javascript"  src="'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'product/vendors/js/respond.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'product/vendors/js/html5shiv.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'product/vendors/js/selectivizr.min.js' %}"></script>
-    <script type="text/javascript"  src="{% static 'product/vendors/js/jquery.waypoints.min.js' %}"></script>
-        <script language="JavaScript" type="text/javascript"  src="{% static 'product/resources/js/script-main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'product/resources/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'product/resources/js/script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'product/vendors/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'product/vendors/js/bootstrap.min.js' %}"></script>
+    <script language="JavaScript" src="{% static 'product/resources/js/script-main.js' %}"></script>
     </body>  
-    
     
     
 </html>

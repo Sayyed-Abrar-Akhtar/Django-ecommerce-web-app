@@ -48,8 +48,7 @@ urlpatterns = [
     path('custLogout', productviews.custLogout),
     path('addreview', productviews.addreview),
     path('customize', productviews.customize),
-    
-    
+    path('productdetails/<int:id>', productviews.productdetails),
     
     
     

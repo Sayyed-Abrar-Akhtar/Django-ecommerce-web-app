@@ -8,8 +8,6 @@ from django.db.models import Q
 
 
 
-
-
 def login(request):
     if request.method == "POST":
         request.session['username'] = request.POST['username']
@@ -169,6 +167,12 @@ def showcust(request):
     custs = Customer.objects.all()
     user = User.objects.get(id = request.session['id'])
     return render(request, 'dashboardcust.html', {'custs':custs, 'user':user})
+
+
+def productdetails(request, id):
+    product = Product.objects.get(SKU=id)
+    return render(request, 'productdetails.html', {'product':product})
+
 
 
 def editproduct(request, id):

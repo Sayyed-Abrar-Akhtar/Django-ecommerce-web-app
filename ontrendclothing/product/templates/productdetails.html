@@ -1,0 +1,107 @@
+{% extends "layout-frontend.html" %}
+{% block class%} class="sticky"{% endblock %}
+{% block navelements%}
+    <li><a href="/signup"></i>SignUp</a></li>
+{% endblock navelements%}
+
+
+{% block content %}
+
+    {% load static %}
+    <section>
+    
+
+    	<div class="row">
+    		<div class="productimage">
+    			<div class="product-index">
+    				<ul>
+    					<li>
+    						
+    							<img id="first" src="{% static '/media/' %}{{product.featureImg}}">
+    						
+						</li>
+    					<li>
+    						
+    							<img id="second" src="{% static '/media/' %}{{product.displayImg}}">
+    						
+						</li>
+    					<li>
+    						
+    							<img id="third" src="{% static '/media/' %}{{product.displayImgFirst}}">
+    						
+						</li>
+    					<li>
+    						
+    							<img id="fourth" src="{% static '/media/' %}{{product.displayImgSecond}}">
+    						
+						</li>
+    					<li>
+    						
+    							<img id="fifth" src="{% static '/media/' %}{{product.displayImgThird}}">
+    						
+						</li>
+    				</ul>
+    				
+    				
+    				
+    				
+    				
+    			</div>
+    			<div class="product-image">
+    				<img id="change-img" src="{% static '/media/' %}{{product.featureImg}}">
+    			</div>
+    		</div>
+    		<div class="productdetails">
+    			<div class="row">
+    				<p class="vendor">{{product.vendor}}</p>
+    				<p class="title">{{product.title}}</p>
+    				<p class="price"><i class="ion-social-usd"></i>{{product.price}}</p>
+    				
+                    <div class="row">
+                        <a class="buy-btn" href=""> Grab product! </a>
+                        <a class="buy-btn review" href="/addreview"> Write a review.. </a>
+                    </div>
+                    
+    				<p class="info">
+    					Free delivery option over Nepal
+    				</p>
+    			</div>
+    			<div class="description">
+    				<p class="detail">Product Details</p>
+    				<p class="prod-description">{{product.description}}</p>
+    			</div>
+    		</div>
+    	</div>
+
+
+
+    </section>
+<script type="text/javascript" src="{% static 'product/resources/js/jquery.js' %}"></script>
+<script type="text/javascript">
+ $(document).ready(function(){
+    
+    $("#first").click(function(){
+    	$("#change-img").attr("src","{% static '/media/' %}{{product.featureImg}}");
+    	
+   });
+    $("#second").click(function(){
+    	$("#change-img").attr("src","{% static '/media/' %}{{product.displayImg}}");
+    	
+   });
+    $("#third").click(function(){
+    	$("#change-img").attr("src","{% static '/media/' %}{{product.displayImgFirst}}");
+    	
+   });
+    $("#fourth").click(function(){
+    	$("#change-img").attr("src","{% static '/media/' %}{{product.displayImgSecond}}");
+    	
+   });
+    $("#fifth").click(function(){
+    	$("#change-img").attr("src","{% static '/media/' %}{{product.displayImgThird}}");
+    	
+   });
+ });
+</script>
+
+
+{% endblock content %}

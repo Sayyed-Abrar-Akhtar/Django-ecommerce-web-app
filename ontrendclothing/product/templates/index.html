@@ -1,8 +1,6 @@
 {% extends "layout-frontend.html" %}
 {% block header%} class="header" {% endblock header%}
     {% block navelements%}
-    <li><a href="#"><i class="ion-ios-search icon-small"></i></a></li>
-    <li><a href="#"><i class="ion-ios-cart icon-small"></i></a></li>
     
     {% block custdetails %}
     
@@ -33,14 +31,16 @@
 
                 {% for trendyproduct in trendyproducts %}
                 {% load static %}
-                <div class="span-1-of-4 allproducts">
-                <img src="{% static '/media/' %}{{trendyproduct.displayImgFirst}}">
-                
-                <h3>{{trendyproduct.title}}</h3>
-                <h3><i class="ion-social-usd"></i>
-                {{trendyproduct.price}}
-                </h3>
-            </div>
+                <a href="/productdetails/{{trendyproduct.SKU}}">
+                    <div class="span-1-of-4 allproducts">
+                        <img src="{% static '/media/' %}{{trendyproduct.displayImgFirst}}">
+                        
+                        <h3>{{trendyproduct.title}}</h3>
+                        <h3><i class="ion-social-usd"></i>
+                        {{trendyproduct.price}}
+                        </h3>
+                    </div>
+                </a>
                 {% endfor %}
                
             </div>

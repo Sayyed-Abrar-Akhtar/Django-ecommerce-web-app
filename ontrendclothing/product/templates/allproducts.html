@@ -1,8 +1,6 @@
 {% extends "layout-frontend.html" %}
 {% block class%} class="sticky"{% endblock %}
 {% block navelements%}
-    <li><a href="#features"><i class="ion-ios-search icon-small"></i></a></li>
-    <li><a href="#cities"><i class="ion-ios-cart icon-small"></i></a></li>
     <li><a href="/signup"></i>SignUp</a></li>
 {% endblock navelements%}
 
@@ -16,6 +14,7 @@
     	<h2>All Products</h2>
     	<div class="row">
     		{% for product in products %}
+            <a href="/productdetails/{{product.SKU}}">
     		<div class="span-1-of-4 allproducts">
     			<img src="{% static '/media/' %}{{product.displayImgFirst}}">
     			
@@ -24,6 +23,7 @@
                 {{product.price}}
                 </h3>
     		</div>
+            </a>
     		{% endfor %}
     	</div>
 
