@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     {% load static %}
+
     <link rel="stylesheet" type="text/css" href="{% static 'product/resources/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'product/vendors/css/bootstrap-grid.css' %}" />
@@ -31,7 +32,7 @@
           </div>
           <div class="dropdown-content" id="dropdown-content">
             <ul>
-              <li><a href="#">Settings</a></li>
+              <li><a href="/edituser/{{user.id}}">Settings</a></li>
               <li><a href="/logout">Logout</a></li>
 
             </ul>

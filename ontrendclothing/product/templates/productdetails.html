@@ -1,7 +1,7 @@
 {% extends "layout-frontend.html" %}
 {% block class%} class="sticky"{% endblock %}
 {% block navelements%}
-    <li><a href="/signup"></i>SignUp</a></li>
+    <li><a href="/addcust"></i>SignUp</a></li>
 {% endblock navelements%}
 
 
@@ -55,7 +55,7 @@
     			<div class="row">
     				<p class="vendor">{{product.vendor}}</p>
     				<p class="title">{{product.title}}</p>
-    				<p class="price"><i class="ion-social-usd"></i>{{product.price}}</p>
+    				<p class="price"><i class="ion-social-usd"></i>{{product.price}} Dollars</p>
     				
                     <div class="row">
                         <a class="buy-btn" href=""> Grab product! </a>
@@ -68,7 +68,7 @@
     			</div>
     			<div class="description">
     				<p class="detail">Product Details</p>
-    				<p class="prod-description">{{product.description}}</p>
+    				<ul class="prod-description" id="prod-desc">{{product.description}}</ul>
     			</div>
     		</div>
     	</div>
@@ -77,9 +77,12 @@
 
     </section>
 <script type="text/javascript" src="{% static 'product/resources/js/jquery.js' %}"></script>
+
 <script type="text/javascript">
  $(document).ready(function(){
     
+    
+
     $("#first").click(function(){
     	$("#change-img").attr("src","{% static '/media/' %}{{product.featureImg}}");
     	

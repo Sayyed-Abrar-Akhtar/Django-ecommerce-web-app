@@ -13,22 +13,78 @@
                     {% csrf_token%}
                     <div class="row">
                         <div class="col span-1-of-3">
+                            <label for="Review">Main Banner Title</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.herotitle}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Main Banner Subtitle</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.herosubtitle}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Hero Button Title</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.herobtntitle}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Ghost Button Title</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.ghostbtntitle}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Featured Product section</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.featureprodtitle}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Review Section Heading</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.reviewsectiontitle}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
                             <label for="Name">Main Banner</label>
                         </div>
                         <div class="col span-2-of-3">
                             {{ customizeform.mainbanner }}
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col span-1-of-3">
-                            <label for="Review">Review Banner</label>
+                            <label for="Review">Men Banner </label>
                         </div>
                         <div class="col span-2-of-3">
-                            {{customizeform.reviewbanner}}
+                            {{customizeform.menbanner}}
                         </div>
                     </div>
                     
-                    
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="Review">Woen Banner</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            {{customizeform.womenbanner}}
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label>&nbsp;</label>

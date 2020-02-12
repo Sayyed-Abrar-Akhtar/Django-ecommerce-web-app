@@ -1,4 +1,5 @@
 {% extends "layout-frontend.html" %}
+{% load static %}
 {% block header%} class="header" {% endblock header%}
     {% block navelements%}
     
@@ -14,23 +15,39 @@
     {% block banner  %}
 
     <div class="hero-text-box">
-        <h1>Stay home and<br>Shop Online</h1>
-        <a class="btn btn-full js--scroll-to-plans" href="/allproducts">All Products</a>
-        <a class="btn btn-ghost js--scroll-to-start" href="#reviews">Reviews</a>
+        {% for banner in banner %}
+        <h1>{{banner.herotitle}}<br>{{banner.herosubtitle}}</h1>
+        <a class="btn btn-full js--scroll-to-plans" href="/allproducts">{{banner.herobtntitle}}</a>
+        <a class="btn btn-ghost js--scroll-to-start" href="#reviews">{{banner.ghostbtntitle}}</a>
+        {% endfor %}
     </div>
 
     {% endblock banner %}
 
+{{banner.mainbanner }}
+{% block mainbanner %}
+        <section class="main-banner">
+            <div class="row">
+                {% for banner in banner %}
+                <div class="col span-12-of-12">
+                    <img src="{% static '/media/' %}{{banner.mainbanner }}">
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endblock mainbanner %}
 {% block content %}
     <section class="section-products js--section-products">
             <div class="row">
-                <h2>Trending on Summer</h2>
+                {% for banner in banner%}
+                <h2>{{banner.featureprodtitle}}</h2>
+                {% endfor %}
             </div>
             
             <div class="row js--wp-3">
 
                 {% for trendyproduct in trendyproducts %}
-                {% load static %}
+                
                 <a href="/productdetails/{{trendyproduct.SKU}}">
                     <div class="span-1-of-4 allproducts">
                         <img src="{% static '/media/' %}{{trendyproduct.displayImgFirst}}">
@@ -49,7 +66,9 @@
         
         <section class="section-testimonials" id="reviews">
             <div class="row">
-                <h2>Our customers get all Apparel from us.</h2>
+                {% for banner in banner %}
+                <h2>{{banner.reviewsectiontitle}}</h2>
+                {% endfor %}
             </div>
             <div class="row">
                 {% for review in reviews %}
@@ -63,3 +82,18 @@
             </div>
         </section>
 {% endblock %}
+
+{% block reviewbanner %}
+        <section class="review-banner">
+            <div class="row">
+                {% for banner in banner %}
+                <div class="col span-6-of-12">
+                    <img src="{% static '/media/' %}{{banner.menbanner }}">
+                </div>
+                <div class="col span-6-of-12">
+                    <img src="{% static '/media/' %}{{banner.womenbanner }}">
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+{% endblock reviewbanner %}

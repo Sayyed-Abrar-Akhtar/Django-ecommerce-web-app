@@ -63,6 +63,12 @@ svg {
   height: 30px;
 }
 
+textarea {
+    height: 100px;
+    width: 100%;
+    border: none;
+}
+
 /* ----------------------------------------------- */
 /* FORM */
 /* ----------------------------------------------- */
@@ -73,7 +79,7 @@ input[type=submit],
 input[type=text],
 input[type=email],
 input[type=password],
-select,
+select
 textarea {
     width: 100%;
     padding: 7px;
@@ -240,6 +246,10 @@ header .nav-row {
 
  .main .side-menu ul li a .sidebar-menu-icon{
    height: 20px;
+ }
+
+ .main .side-menu ul li a svg {
+  fill: #d35400;
  }
  
  .product-list {

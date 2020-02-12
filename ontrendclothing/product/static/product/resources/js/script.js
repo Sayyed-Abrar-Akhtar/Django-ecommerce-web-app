@@ -37,6 +37,11 @@ $(document).ready(()=>{
         console.log(data)
 
         $("tr").not("tr:first").remove();
+        if (search != "" ) {
+          $(".pagination").remove();
+        } else {
+          window.location.replace("/showproduct");
+        }
         for(data of data) {
           console.log(data.price)
           console.log(data.title)

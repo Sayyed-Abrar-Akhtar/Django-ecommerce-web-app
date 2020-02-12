@@ -49,7 +49,8 @@ urlpatterns = [
     path('addreview', productviews.addreview),
     path('customize', productviews.customize),
     path('productdetails/<int:id>', productviews.productdetails),
-    
+    path('searchproduct', productviews.searchproduct),
+    path('getsearchedproduct', productviews.getsearchedproduct),
     
     
 ]

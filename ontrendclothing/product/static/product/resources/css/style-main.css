@@ -272,6 +272,7 @@ input[type=submit]:active {
     margin-left: 5px;
 }
 
+
 .main-nav li a:link,
 .main-nav li a:visited {
     padding: 8px 0;
@@ -289,7 +290,9 @@ input[type=submit]:active {
     color:#e67e22;
 }
 
-
+.main-nav li a svg{
+    height: 16px;
+}
 
 .ion-ios-search:hover, 
 .ion-ios-cart:hover,
@@ -415,6 +418,27 @@ cite img {
     margin-right: 10px;
     vertical-align: middle;
 }
+
+
+/* ----------------------------------------------- */
+/* MAIN BANNER */
+/* ----------------------------------------------- */
+
+.main-banner .row .col img{
+    width: 100%;
+}
+
+
+/* ----------------------------------------------- */
+/* REVIEW BANNER  */
+/* ----------------------------------------------- */
+
+.review-banner .row .col img{
+    width: 96%;
+    margin: 0 2%
+}
+
+
 
 
 
@@ -684,10 +708,11 @@ footer p {
 }
 
 .description .prod-description {
-   font-size: 90%;   
+   font-size: 75%;   
     padding: 10px 5px;
     letter-spacing: 1px;
     word-spacing: 2px;
     color: #5b5b5b;
+    border:1px solid #ee803e21;
 }
 

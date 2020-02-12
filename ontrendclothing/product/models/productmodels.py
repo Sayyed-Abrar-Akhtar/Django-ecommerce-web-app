@@ -77,8 +77,15 @@ class Customer(models.Model):
 
 
 class Customize(models.Model):
-    mainbanner = models.ImageField(default="hero.jpg", upload_to='images/')
-    reviewbanner = models.ImageField(default="hero.jpg", upload_to='images/')
+    mainbanner          = models.ImageField(default="images/70550984_10157373051965535_3336865258831609856_n.jpg", upload_to='images/')
+    menbanner           = models.ImageField(default="images/64514024_2171307086325281_2513036548014866432_n.jpg", upload_to='images/')
+    womenbanner         = models.ImageField(default="images/66695107_2171307216325268_6767799174848053248_n.jpg", upload_to='images/')
+    herotitle           = models.CharField(max_length=50, default="Stay home and")
+    herosubtitle        = models.CharField(max_length=50, default="Shop online")
+    herobtntitle        = models.CharField(max_length=50, default="All Products")
+    ghostbtntitle       = models.CharField(max_length=50, default="Reviews")
+    featureprodtitle    = models.CharField(max_length=50, default="Ontrend this summer")
+    reviewsectiontitle  = models.CharField(max_length=50, default="Our customers get all Apparel from us.")
     class Meta:
         db_table = "customize"
 
