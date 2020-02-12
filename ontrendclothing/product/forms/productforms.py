@@ -22,7 +22,7 @@ class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'useremail', 'password', 'img']
+        fields = "__all__"
 
 
 class CustomerForm(forms.ModelForm):

@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'ontrendclothing.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ontrend_clothing',
+        'NAME': 'ontrendclothing',
         'OPTIONS': {
              'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },

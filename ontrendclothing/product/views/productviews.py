@@ -4,6 +4,7 @@ from product.forms.productforms import ProductForm, TypeForm, VendorForm, UserFo
 from django.http import HttpResponse,JsonResponse
 from product.authenticate import Authenticate
 from django.db.models import Q 
+from django.core.paginator import Paginator
 
 
 
@@ -136,10 +137,16 @@ def customize(request):
 
 @Authenticate.valid_user
 def showproduct(request):
+    limit = 1
     products = Product.objects.all().order_by('title')
     vendors = Vendor.objects.all()
     user = User.objects.get(id = request.session['id'])
+    paginator = Paginator(products, limit)
+    page =request.GET.get('page')
+    products = paginator.get_page(page)
+    
     return render(request, 'dashboard.html', {'products':products, 'vendors': vendors, 'user':user})
+
 
 
 @Authenticate.valid_user
@@ -306,12 +313,14 @@ def onlinestore(request):
 
 
 def allproducts(request):
+    limit = 12
     trendyproducts =  products = Product.objects.all().order_by('-SKU');
     products = Product.objects.all()
     customize = Customize.objects.all()
+    paginator = Paginator(products, limit)
+    page =request.GET.get('page')
+    products = paginator.get_page(page)
     return render(request, 'allproducts.html', {'trendyproducts':trendyproducts, 'products':products, 'customize':customize})
-
-
 
 def search(request):
     products = Product.objects.filter(title__icontains=request.GET['search']).values()

@@ -76,7 +76,18 @@
                         <input type="file" name="img" accept="image/*" id="id_img">
                     </div>
                 </div> 
-
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="profile-pic">Admin</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {% if user.isAdmin %}
+                        <input type="checkbox" name="isAdmin" id="id_isAdmin" checked>
+                        {% else %}
+                        <input type="checkbox" name="isAdmin" id="id_isAdmin">
+                        {% endif %}
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col span-1-of-3">
                         <label>&nbsp;</label>

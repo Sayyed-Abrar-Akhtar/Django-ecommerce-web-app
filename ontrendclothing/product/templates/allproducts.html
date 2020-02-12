@@ -31,7 +31,37 @@
 
     </section>
 
+    <div class="pagination">
 
+      {% if products.has_previous %}
+
+        <a href="?page=1"><<<</a>....
+        <a href="?page={{products.previous_page_number}}"><strong><</strong></a>
+        
+      {% endif %}
+
+
+      {% for num in products.paginator.page_range %}
+
+        {% if products.number == num %}
+
+          <strong class="active-page">{{num}}</strong>
+
+          {% elif num > products.number|add:'-3' and num < products.number|add:'3'  %}
+          <a href="?page={{num}}"></a>
+          {{num}}
+
+        {% endif %}
+
+        
+
+      {% endfor %}
+      {% if products.has_next %}
+
+        <a href="?page={{products.next_page_number}}"><strong>></strong></a>.....
+        <a href="?page={{products.paginator.num_pages}}">>>></a>
+      {% endif %}
+        </div>
 
 
 {% endblock content %}
