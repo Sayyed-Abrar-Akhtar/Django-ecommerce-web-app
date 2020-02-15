@@ -34,20 +34,14 @@ $(document).ready(()=>{
       url:'/search',
       method:'GET',
       success: function(data) {
-        console.log(data)
 
         $("tr").not("tr:first").remove();
-        if (search != "" ) {
+        if ($("#search").val() != "" ) {
           $(".pagination").remove();
         } else {
           window.location.replace("/showproduct");
         }
         for(data of data) {
-          console.log(data.price)
-          console.log(data.title)
-          console.log(data.type)
-          console.log(data.SKU)
-          console.log(data.type)
 
           var html = "";
           html+="<tr>";

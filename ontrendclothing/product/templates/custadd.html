@@ -1,79 +1,80 @@
 {% extends "layout-frontend.html" %}
-        {% block class%} class="sticky"{% endblock %}
-        {% block content %}
-        <section class="section-form">
-            <div class="row">
-                <h2>Congratulation and welcome to the On trend Group!</h2>
-            </div>
+    {% block class%} class="sticky"{% endblock %}
+    {% block content %}
+    <section class="section-form">
+        <div class="row">
+            <h2>Congratulation and welcome to the On trend Group!</h2>
+        </div>
 
-    
 
-            <div class="row">
-                <form method="post" action="/addcust" class="contact-form" enctype="multipart/form-data">
-                    {% csrf_token%}
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="firstname">First Name</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{custform.first_name}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="lastname">Last Name</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{custform.last_name}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="username">Username</label>
-  
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{custform.user}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{custform.email}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{custform.key}}
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="profile-pic">Profile Picture</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{custform.img}}
-                        </div>
-                    </div> 
-                     
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>&nbsp;</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="submit" value="Send it!">
-                        </div>
-                    </div>
 
-                </form>
+        <div class="row">
+            <form method="post" action="/addcust" class="contact-form" enctype="multipart/form-data">
+                {% csrf_token%}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="firstname">First Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{custform.first_name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="lastname">Last Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{custform.last_name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="username">Username</label>
+
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{custform.user}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{custform.email}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{custform.key}}
+                    </div>
+                </div>
                 
-            </div>
-        </section>
-       {% endblock %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="profile-pic">Profile Picture</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{custform.img}}
+                    </div>
+                </div> 
+                 
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>&nbsp;</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="submit" value="Send it!">
+                    </div>
+                </div>
+
+            </form>
+            
+        </div>
+        
+    </section>
+{% endblock %}
         

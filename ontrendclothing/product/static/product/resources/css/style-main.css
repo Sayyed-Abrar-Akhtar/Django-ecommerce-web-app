@@ -708,11 +708,51 @@ footer p {
 }
 
 .description .prod-description {
-   font-size: 75%;   
+    font-size: 75%;   
     padding: 10px 5px;
     letter-spacing: 1px;
     word-spacing: 2px;
     color: #5b5b5b;
     border:1px solid #ee803e21;
 }
+.pagination {
+    margin-left: 45%;
+    border: none;
 
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #6c6363;
+    border: none;
+    padding:  0 3px;
+}
+
+.pagination a svg {
+    fill: #484848;
+    width: 25px;
+}
+
+.pagination .pagination-a {
+    display: block;
+    float: left;
+}
+
+.pagination  i .page-dist {
+    padding: 0 5px;
+
+    display: block;
+    float: left;
+}
+
+.pagination a .arrow {
+  stroke: #6c6363;
+}
+
+.pagination a .arrow-left {
+  margin-right: 5px;
+}
+
+.pagination a .arrow-right {
+  margin-left: 5px;
+}

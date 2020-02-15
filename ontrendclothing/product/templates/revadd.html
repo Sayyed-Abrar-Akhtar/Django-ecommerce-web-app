@@ -1,54 +1,57 @@
 {% extends "layout-frontend.html" %}
-        {% block class%} class="sticky"{% endblock %}
-        {% block content %}
-        <section class="section-form">
-            <div class="row">
-                <h2>Please share us your experience with the website!</h2>
-            </div>
 
+{% block class%} class="sticky"{% endblock %}
+
+{% block content %}
     
+    <section class="section-form">
+        <div class="row">
+            <h2>Please share us your experience with the website!</h2>
+        </div>
 
-            <div class="row">
-                <form method="post" action="/addreview" class="contact-form" enctype="multipart/form-data">
-                    {% csrf_token%}
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="Name">Name</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{revform.name}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="Review">Review</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{revform.review}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="Image">Image</label>
-  
-                        </div>
-                        <div class="col span-2-of-3">
-                            {{revform.img}}
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>&nbsp;</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="submit" value="Send it!">
-                        </div>
-                    </div>
 
-                </form>
+
+        <div class="row">
+            <form method="post" action="/addreview" class="contact-form" enctype="multipart/form-data">
+                {% csrf_token%}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="Name">Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{revform.name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="Review">Review</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{revform.review}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="Image">Image</label>
+
+                    </div>
+                    <div class="col span-2-of-3">
+                        {{revform.img}}
+                    </div>
+                </div>
                 
-            </div>
-        </section>
-       {% endblock %}
-        
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>&nbsp;</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="submit" value="Send it!">
+                    </div>
+                </div>
+
+            </form>
+            
+        </div>
+    </section>
+{% endblock %}
+    

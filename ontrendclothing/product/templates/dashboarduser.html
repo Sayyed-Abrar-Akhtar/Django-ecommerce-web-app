@@ -33,5 +33,37 @@
     {% endfor %}
   </tbody>
 </table>
+
+<div class="pagination">
+  {% if users.has_previous %}
+
+      <a href="?page=1"><svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 512 512'><title>ionicons-v5-b</title><path d='M321.94,98,158.82,237.78a24,24,0,0,0,0,36.44L321.94,414c15.57,13.34,39.62,2.28,39.62-18.22V116.18C361.56,95.68,337.51,84.62,321.94,98Z'/></svg></a>
+      <a href="?page={{users.previous_page_number}}"><svg class="arrow arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><title>ionicons-v5-a</title><polyline points='328 112 184 256 328 400' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/></svg></a>
+      
+    {% endif %}
+
+
+    {% for num in users.paginator.page_range %}
+
+      {% if users.number == num %}
+
+        <i><strong class="active-page">{{num}}</strong></i>
+
+        {% elif num > users.number|add:'-3' and num < users.number|add:'3'  %}
+        <i><a href="?page={{num}}">
+        {{num}}
+        </a></i>
+      {% endif %}
+
+      
+
+    {% endfor %}
+    {% if users.has_next %}
+
+      <a href="?page={{users.next_page_number}}"><svg class="arrow arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><title>ionicons-v5-a</title><polyline points='184 112 328 256 184 400' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/></svg></a>
+      <a href="?page={{users.paginator.num_pages}}"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><title>ionicons-v5-b</title><path d='M190.06,414,353.18,274.22a24,24,0,0,0,0-36.44L190.06,98c-15.57-13.34-39.62-2.28-39.62,18.22V395.82C150.44,416.32,174.49,427.38,190.06,414Z'/></svg></a>
+    {% endif %}
+</div>
+
 {% endblock dashtable %}
 
