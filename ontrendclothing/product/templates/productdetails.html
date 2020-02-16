@@ -26,8 +26,8 @@
 
     <section>
     	<div class="row">
-    		<div class="productimage">
-    			<div class="product-index">
+    		<div class="col span-2-of-3 productimage">
+    			<div class="col span-1-of-5 product-index">
     				<ul>
     					<li>
 							<img id="first" src="{% static '/media/' %}{{product.featureImg}}">
@@ -46,11 +46,12 @@
 						</li>
     				</ul>
     			</div>
-    			<div class="product-image">
+    			<div class="col span-4-of-5 product-image">
     				<img id="change-img" src="{% static '/media/' %}{{product.featureImg}}">
     			</div>
     		</div>
-    		<div class="productdetails">
+            
+    		<div class="col span-1-of-3 productdetails">
     			<div class="row">
     				<p class="vendor">{{product.vendor}}</p>
     				<p class="title">{{product.title}}</p>

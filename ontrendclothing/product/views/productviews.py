@@ -214,14 +214,15 @@ def adduser(request):
 def edituser(request, id):
     user = User.objects.get(id = id)
     adminuser = User.objects.get(id=request.session['id'])
-    return render(request, 'updateuser.html', {'user':user, 'adminuser':adminuser})
+    if request.session['isAdmin'] == True or request.session['id']==user.id:
+        return render(request, 'updateuser.html', {'user':user, 'adminuser':adminuser})
+    else:
+        return redirect('/showuser')
 
 
 
 def updateuser(request, id):
     user = User.objects.get(id=id)
-
-    print(adminuser.isAdmin)
     if request.method == "POST":
         form = UserForm(request.POST, request.FILES, instance = user)
         if form.is_valid:
@@ -234,10 +235,7 @@ def updateuser(request, id):
 
 def deleteuser(request, id):
     user = User.objects.get(id = id)
-    print("hi deleting")
-    print(request.session['isAdmin'])
     if request.session['isAdmin'] == True or request.session['id']==user.id:
-        print("entered if in delete")
         user.delete()
     else:
         return redirect('/showproduct')

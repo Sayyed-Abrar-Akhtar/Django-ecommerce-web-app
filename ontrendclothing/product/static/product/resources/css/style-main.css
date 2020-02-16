@@ -594,7 +594,7 @@ footer p {
 /* ----------------------------------------------- */
 /* ----------------PRODUCT DETAILS------------------*/
 /* ----------------------------------------------- */
-
+/*
 .productimage {
     width: 60%;
     float: left;
@@ -606,7 +606,7 @@ footer p {
     width: 15%;
     float: left;
 }
-
+*/
 .productimage .product-index ul li {
     list-style-type: none;
     padding-bottom: 2px;
@@ -618,24 +618,24 @@ footer p {
     margin: 0 10%;
 }
 
-
+/*
 .productimage .product-image{
     float: right;
     width: 75%;
     margin: 0 5%;
 }
-
+*/
 
 .productimage .product-image img{
     width: 90%;
     margin: 0 5%;
 }
-
+/*
 .productdetails {
     width: 40%;
     float: left;
 }
-
+*/
 .productdetails .row .vendor,
 .productdetails .row .title,
 .productdetails .row .info,
@@ -671,7 +671,7 @@ footer p {
     padding: 10px 10px;
     margin: 25px 0;
     display: block;
-    width: 40%;
+    width: 45%;
     text-align: center;
     font-weight: 500;
     color: #f4f4f4;
@@ -756,3 +756,7 @@ footer p {
 .pagination a .arrow-right {
   margin-left: 5px;
 }
+
+
+
+

@@ -13,18 +13,7 @@ class Authenticate:
         return wrap
 
 
-    def valid_cust(function):
-        def wrap(request):
-            try:
-                Customer.objects.get(user = request.session['user'])
-                Customer.objects.get(key = request.session['key'])
-                return function(request)
-            except:
-                return redirect("/custLogin")
-        return wrap
-
-
-
+    
 
     
 

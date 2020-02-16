@@ -24,7 +24,7 @@
     
     <tr>
       {% load static %}
-      <th scope="row"><a href ="/editcust/{{cust.id}}"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{cust.img}}" alt=""><span>{{cust.first_name}}</span></a></th>
+      <th scope="row"> <img class="rounded product-thumbnail" src="{% static '/media/' %}{{cust.img}}" alt=""><span>{{cust.first_name}}</span></th>
       <td>{{cust.last_name}}</td>
       <td>{{cust.user}}</td>
       <td>{{cust.email}}</td>
